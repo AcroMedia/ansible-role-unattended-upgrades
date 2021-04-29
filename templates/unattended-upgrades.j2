@@ -35,12 +35,12 @@ APT::Periodic::RandomSleep "{{unattended_random_sleep}}";
   // upgraded.
   Unattended-Upgrade::Origins-Pattern {
   {% if unattended_origins_patterns is defined %}
-    {% for origin in unattended_origins_patterns %}
-      "{{ origin }}";
+    {% for pattern in unattended_origins_patterns %}
+      "{{ pattern }}";
     {% endfor %}
   {% else %}
-    {% for origin in __unattended_origins_patterns %}
-     "{{ origin }}";
+    {% for pattern in __unattended_origins_patterns %}
+     "{{ pattern }}";
     {% endfor %}
   {% endif %}
   };
@@ -49,7 +49,7 @@ APT::Periodic::RandomSleep "{{unattended_random_sleep}}";
   // Automatically upgrade packages from these (origin:archive) pairs
   Unattended-Upgrade::Allowed-Origins {
   {% if unattended_allowed_origins is defined %}
-    {% for origin in unattended_origins_patterns %}
+    {% for origin in unattended_allowed_origins %}
       "{{ origin }}";
     {% endfor %}
   {% else %}
