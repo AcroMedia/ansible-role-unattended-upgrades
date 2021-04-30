@@ -36,11 +36,11 @@ APT::Periodic::RandomSleep "{{unattended_random_sleep}}";
 Unattended-Upgrade::Origins-Pattern {
 {% if unattended_origins_patterns is defined %}
 {% for pattern in unattended_origins_patterns %}
-"{{ pattern }}";
+  "{{ pattern }}";
 {% endfor %}
 {% else %}
 {% for pattern in __unattended_origins_patterns %}
-"{{ pattern }}";
+  "{{ pattern }}";
 {% endfor %}
 % endif %}
 };
@@ -50,11 +50,11 @@ Unattended-Upgrade::Origins-Pattern {
 Unattended-Upgrade::Allowed-Origins {
 {% if unattended_allowed_origins is defined %}
 {% for origin in unattended_allowed_origins %}
-"{{ origin }}";
+  "{{ origin }}";
 {% endfor %}
 {% else %}
 {% for origin in __unattended_allowed_origins %}
-"{{ origin }}";
+  "{{ origin }}";
 {% endfor %}
 {% endif %}
 };
@@ -62,7 +62,7 @@ Unattended-Upgrade::Allowed-Origins {
 // List of packages to not update (regexp are supported)
 Unattended-Upgrade::Package-Blacklist {
 {% for package in unattended_package_blacklist %}
-"{{package}}";
+  "{{package}}";
 {% endfor %}
 };
 
@@ -144,7 +144,7 @@ Unattended-Upgrade::IgnoreAppsRequireRestart "true";
 // Append options for governing dpkg behavior, e.g. --force-confdef.
 Dpkg::Options {
 {% for dpkg_option in unattended_dpkg_options %}
-"{{ dpkg_option }}";
+  "{{ dpkg_option }}";
 {% endfor %}
 };
 {% endif %}
