@@ -42,7 +42,7 @@ Unattended-Upgrade::Origins-Pattern {
 {% for pattern in __unattended_origins_patterns %}
   "{{ pattern }}";
 {% endfor %}
-% endif %}
+{% endif %}
 };
 {% endif %}
 {% if unattended_allowed_origins is defined or __unattended_allowed_origins is defined %}
